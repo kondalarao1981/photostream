@@ -102,11 +102,105 @@ if(isset($_SESSION['id']) == ""){
                                     </div>
 
 
-					
+					<?php
+                        
+                        
+                            if(isset($_POST['send'])){    
+                                
+                                //// Function to Convert File Size
+					function ByteSize($bytes)  
+			{ 
+					$size = $bytes / 1024; 
+					if($size < 1024) 
+					{ 
+						$size = number_format($size, 2); 
+						$size .= 'KB'; 
+					}  
+					else  
+				{ 
+					if($size / 1024 < 1024)  
+					{ 
+						$size = number_format($size / 1024, 2); 
+						$size .= 'MB'; 
+					}  
+					else if ($size / 1024 / 1024 < 1024)   
+					{ 
+						$size = number_format($size / 1024 / 1024, 2); 
+						$size .= 'GB'; 
+					}  
+				} 
+				return $size; 
+                        }
+                                        
+                                      
+                                date_default_timezone_set('Asia/Calcutta');
+                                $business_name = strip_tags($_POST['ft_business_name']);
+                                $business_role =  $_POST['ft_role'];
+                                $business_address = strip_tags($_POST['ft_business_address']);
+                                $business_address_area = strip_tags($_POST['ft_business_address_area']);
+                                $pincode = strip_tags($_POST['ft_pincode']);
+                                $city = strip_tags($_POST['ft_city']);
+                                $state = strip_tags($_POST['ft_state']);
+                                $regions_covered = $_POST['ft_regions_covered'];
+                                $languages_known = $_POST['ft_languages_known'];
+                                $img_name = $_FILES['ft_business_logo']['name'];
+                                $img_size = ByteSize($_FILES['ft_business_logo']['size']);
+                                $img_type = $_FILES['ft_business_logo']['type'];
+                                $img_path = $_FILES['ft_business_logo']['tmp_name'];                   
+                                $reg_date = date('M d, Y h:i:s A');
+                                $status = 0;                                    
+                                
+                                // Desired folder structure
+                                $structure = 'photographers/'.ucwords($business_name).'/Logo/';
+
+                               if(!is_dir($structure)){
+                                   mkdir($structure, 0777, true);
+                                   
+                                    $target = $structure;
+                                    $new_target = $target . $img_name;
+                                
+                                    $moved_file = move_uploaded_file($img_path, $new_target);
+                                }  
+                                
+                                echo $new_target;
+                                
+                                foreach ($regions_covered as $regions) {
+                                    $nregions .= $regions.',';
+                                }
+                                foreach ($languages_known as $languages) {
+                                    $nlanguages .= $languages.',';
+                                }
+                                             
+                                 $nregions_covered = $nregions;                                
+                                 $nlanguages_known = $nlanguages;
+                                 
+                          
+                            
+                            echo "<script>";
+                            echo "location.replace('BusinessDetails.php');";
+                            echo "</script>";
+                                
+                            }
+                     
+                        ?>
                 
+                                    
+                                    <input type="hidden" name="hid_business_name" value="<?php echo $business_name;?>" />
+              <input type="hidden" name="hid_business_role" value="<?php echo $business_role;?>" />
+              <input type="hidden" name="hid_business_address" value="<?php echo $business_address;?>" />
+        <input type="hidden" name="hid_business_address_area" value="<?php echo $business_address_area;?>" />
+              <input type="hidden" name="hid_pincode" value="<?php echo $pincode;?>" />
+              <input type="hidden" name="hid_city" value="<?php echo $city;?>" />
+              <input type="hidden" name="hid_state" value="<?php echo $state;?>" />
+              <input type="hidden" name="hid_regions" value="<?php echo $nregions_covered;?>" />
+              <input type="hidden" name="hid_languages" value="<?php echo $nlanguages_known;?>" />
+              <input type="hidden" name="hid_logo_name" value="<?php echo $img_name;?>" />
+              <input type="hidden" name="hid_logo_size" value="<?php echo $img_size;?>" />
+              <input type="hidden" name="hid_logo_type" value="<?php echo $img_type;?>" />
+              <input type="hidden" name="hid_logo_path" value="<?php echo $new_target;?>" />
 
 
-				<form name="createprofile" class="hm_contact_form full_contact_form" action="BusinessDetails.php" method="post" onsubmit="return(cpvalidate());" enctype="multipart/form-data">						
+                                    <form name="createprofile" class="hm_contact_form full_contact_form" action="CreateProfile.php" method="post" onsubmit="return(validate());" enctype="multipart/form-data">						
 
 						<div class="form_row clearfix">
 							<div class="my_col_half">
@@ -181,9 +275,10 @@ if(isset($_SESSION['id']) == ""){
                                                                 </label>
                                                             
 								<label class="orderby_label">
-                                                                    <select required="" name="ft_regions_covered" id="ft_regions_covered" class="shipping_country" multiple>
+                                                                    <select required="" name="ft_regions_covered[]" id="ft_regions_covered" class="shipping_country" multiple>
 										<option value="All Over World">All Over World</option>
 										<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
 										<option value="Arunachal Pradesh">Arunachal Pradesh</option>
 										<option value="Assam">Assam</option>
 										<option value="Bihar">Bihar</option>
@@ -237,49 +332,49 @@ if(isset($_SESSION['id']) == ""){
                                                                     <span class="hm_field_name"><strong>Languages Known</strong></span>                                                                    
                                                                 </label>
                                                             
-								<label class="orderby_label">
-                                                                    <select required="" name="ft_languages_known" id="ft_languages_known" class="shipping_country" multiple>
-										<option value="Arabic">Arabic</option>
-										<option value="Assamese">Assamese</option>
-										<option value="Bengali">Bengali</option>
-										<option value="Bhojpuri">Bhojpuri</option>
-										<option value="Bodo">Bodo</option>
-										<option value="Chattisgarhi">Chattisgarhi</option>
-										<option value="Dogri">Dogri</option>
-										<option value="English">English</option>
-										<option value="French">French</option>
-										<option value="Garhwali">Garhwali</option>
-										<option value="German">German</option>
-										<option value="Gujarati">Gujarati</option>
-										<option value="Haryanvi">Haryanvi</option>
-                                                                                <option value="Hindi">Hindi</option>
-                                                                                <option value="Kannada">Kannada</option>
-                                                                                <option value="Kashmiri">Kashmiri</option>
-                                                                                <option value="Khasi">Khasi</option>
-                                                                                <option value="Konkani">Konkani</option>
-                                                                                <option value="Kumaoni">Kumaoni</option>
-                                                                                <option value="Kutchi">Kutchi</option>
-                                                                                <option value="Maithili">Maithili</option>
-                                                                                <option value="Malayalam">Malayalam</option>
-                                                                                <option value="Manipuri">Manipuri</option>
-                                                                                <option value="Marathi">Marathi</option>
-                                                                                <option value="Marwadi">Marwadi</option>
-                                                                                <option value="Mizo">Mizo</option>
-                                                                                <option value="Nagamese">Nagamese</option>
-                                                                                <option value="Nepali">Nepali</option>
-                                                                                <option value="Oriya">Oriya</option>
-                                                                                <option value="Pahari">Pahari</option>
-                                                                                <option value="Punjabi">Punjabi</option>
-                                                                                <option value="Rajasthani">Rajasthani</option>
-                                                                                <option value="Sanskrit">Sanskrit</option>
-                                                                                <option value="Santhali">Santhali</option>
-                                                                                <option value="Sindhi">Sindhi</option>
-                                                                                <option value="Spanish">Spanish</option>                                                                                       <option value="Tamil">Tamil</option>
-                                                                                <option value="Telugu">Telugu</option>
-                                                                                <option value="Urdu">Urdu</option>
-                                                                                                                   
-                                                                        </select>
-								</label>
+                            <label class="orderby_label">
+                              <select required="" name="ft_languages_known[]" id="ft_languages_known" class="shipping_country" multiple>
+                                <option value="Arabic">Arabic</option>
+                                <option value="Assamese">Assamese</option>
+                                <option value="Bengali">Bengali</option>
+                                <option value="Bhojpuri">Bhojpuri</option>
+                                <option value="Bodo">Bodo</option>
+                                <option value="Chattisgarhi">Chattisgarhi</option>
+                                <option value="Dogri">Dogri</option>
+                                <option value="English">English</option>
+                                <option value="French">French</option>
+                                <option value="Garhwali">Garhwali</option>
+                                <option value="German">German</option>
+                                <option value="Gujarati">Gujarati</option>
+                                <option value="Haryanvi">Haryanvi</option>
+                                <option value="Hindi">Hindi</option>
+                                <option value="Kannada">Kannada</option>
+                                <option value="Kashmiri">Kashmiri</option>
+                                <option value="Khasi">Khasi</option>
+                                <option value="Konkani">Konkani</option>
+                                <option value="Kumaoni">Kumaoni</option>
+                                <option value="Kutchi">Kutchi</option>
+                                <option value="Maithili">Maithili</option>
+                                <option value="Malayalam">Malayalam</option>
+                                <option value="Manipuri">Manipuri</option>
+                                <option value="Marathi">Marathi</option>
+                                <option value="Marwadi">Marwadi</option>
+                                <option value="Mizo">Mizo</option>
+                                <option value="Nagamese">Nagamese</option>
+                                <option value="Nepali">Nepali</option>
+                                <option value="Oriya">Oriya</option>
+                                <option value="Pahari">Pahari</option>
+                                <option value="Punjabi">Punjabi</option>
+                                <option value="Rajasthani">Rajasthani</option>
+                                <option value="Sanskrit">Sanskrit</option>
+                                <option value="Santhali">Santhali</option>
+                                <option value="Sindhi">Sindhi</option>
+                                <option value="Spanish">Spanish</option>                                                                                       <option value="Tamil">Tamil</option>
+                                <option value="Telugu">Telugu</option>
+                                <option value="Urdu">Urdu</option>
+
+                                </select>
+                        </label>
 							</div>                                        
 						</div>
                                     
@@ -343,8 +438,7 @@ if(isset($_SESSION['id']) == ""){
 <script src="js/isotope.pkgd.min.js"></script>
 <!-- this is where we put our custom functions -->
 <script type="text/javascript" src="js/functions.js"></script>
-<script src="js/signup_validate.js" type="text/javascript"></script>
-<script src="js/signin_validate.js" type="text/javascript"></script>
+<script src="js/createprofile_validate.js" type="text/javascript"></script>
 </body>
 
 
