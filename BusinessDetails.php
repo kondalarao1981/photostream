@@ -99,7 +99,16 @@ if(isset($_SESSION['id']) == ""){
 							Business
 							<span class="main_title_c1">Details</span>
 						</h2>
-                                    </div>            
+                                    </div>       
+                                    
+                                    
+                                    <?php
+                                    
+                                    echo $business_name = $_POST['hid_business_name'];
+                                    
+                                    
+                                    
+                                    ?>
 
 
 				<form name="businessdetails" class="hm_contact_form full_contact_form" action="PortfolioDetails.php" method="post" onsubmit="return(bdvalidate());">						
@@ -312,7 +321,7 @@ if(isset($_SESSION['id']) == ""){
 <script src="js/isotope.pkgd.min.js"></script>
 <!-- this is where we put our custom functions -->
 <script type="text/javascript" src="js/functions.js"></script>
-<script src="js/signup_validate.js" type="text/javascript"></script>
+
 <script src="js/signin_validate.js" type="text/javascript"></script>
 </body>
 
