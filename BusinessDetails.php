@@ -201,9 +201,9 @@ if(isset($_SESSION['id']) == ""){
                                                                 <span class="hm_requires_star">*</span>
 							</label>
 							<div class="checkbox_radio_con">
-								<input type="checkbox" value="Traditional" name="ft_photo_style">
+                                                            <input type="checkbox" value="Traditional" name="ft_photo_style[]" checked="yes">
 								<span>Traditional</span>
-								<input type="checkbox" value="Candid" name="ft_photo_style">
+								<input type="checkbox" value="Candid" name="ft_photo_style[]">
 								<span>Candid</span>					
 							</div>
                                                     </div>
@@ -257,7 +257,7 @@ if(isset($_SESSION['id']) == ""){
                                                                 </label>
                                                             
 								<label class="orderby_label">
-                                                                    <select required="" name="ft_categories" id="ft_categories" class="shipping_country" multiple>
+                                                                    <select required="" name="ft_categories[]" id="ft_categories" class="shipping_country" multiple>
 										<option value="Wedding">Wedding</option>
 										<option value="Babies &amp; Kids">Babies &amp; Kids</option>
 										<option value="Fashion &amp; Portfolio">Fashion &amp; Portfolio</option>
@@ -275,7 +275,7 @@ if(isset($_SESSION['id']) == ""){
 								</label>
                                                                 <div class="my_col_half">
                                                                         <label class="orderby_label">
-                                                                            <select id="equipment_type" name="equipment_type" class="shipping_country" multiple="yes">
+                                                                            <select id="equipment_type" name="equipment_type[]" class="shipping_country" multiple="yes">
                                                                                         <option value="Photo Camera">Photo Camera</option>
                                                                                         <option value="Video Camera">Video Camera</option>
                                                                                         <option value="Lens">Lens</option>
@@ -298,7 +298,7 @@ if(isset($_SESSION['id']) == ""){
 									<span class="hm_requires_star">*</span>
 								</label>
                                                             <label class="orderby_label">
-                                                                        <select required="" name="ft_products" id="ft_products" class="shipping_country" multiple>
+                                                                     <select required="" name="ft_products[]" id="ft_products" class="shipping_country" multiple>
                                                                         <option value="Blueray Disc">Blueray Disc</option>
                                                                         <option value="Brochure">Brochure</option>
                                                                         <option value="Calendar">Calendar</option>
@@ -328,7 +328,7 @@ if(isset($_SESSION['id']) == ""){
 									<span class="hm_requires_star">*</span>
 								</label>
                                                             <label class="orderby_label">
-                                                                    <select required="" name="ft_payment" id="ft_payment" class="shipping_country" multiple>
+                                                                    <select required="" name="ft_payment[]" id="ft_payment" class="shipping_country" multiple>
 										<option value="Bank Transfer">Bank Transfer</option>
 										<option value="Cash">Cash</option>
 										<option value="Cheque">Cheque</option>
