@@ -335,8 +335,12 @@ if(isset($_SESSION['id']) == ""){
                                     
                         <div class="alert alert-border alert-success">
                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                           <strong><i class="fa fa-check"></i> Success!</strong> Thanks for submitting your profile. Administrator will review your profile and activate your account for further activities.
+                           <strong><i class="fa fa-check"></i> Success!</strong> Thanks for submitting your profile. Administrator will review your profile and publish your account to receive full benefits.
                        </div>
+                                    
+                        <script type="text/JavaScript">                        
+                        setTimeout("location.href = 'ManageProfile.php';",1500);            
+                        </script>            
                                     
                     <?php                
                         }else{
