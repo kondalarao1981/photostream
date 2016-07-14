@@ -310,7 +310,7 @@ require_once('Config.php');
                     $account_type = $_POST['login_account_type'];
                     
                     
-                    $slt = mysql_query("SELECT ph_user_id, ph_user_account_type, ph_user_name, ph_user_email, ph_user_password, ph_user_status FROM ph_users_info WHERE ph_user_email = '$email' AND ph_user_password = '$password' AND ph_user_account_type = '$account_type'");
+                    $slt = mysql_query("SELECT ph_user_id, ph_user_account_type, ph_user_name, ph_user_email, ph_user_password, ph_user_status, ph_user_profile_created FROM ph_users_info WHERE ph_user_email = '$email' AND ph_user_password = '$password' AND ph_user_account_type = '$account_type'");
                     $fth = mysql_fetch_array($slt);
 
                     if($fth == 0){
@@ -332,6 +332,7 @@ require_once('Config.php');
                     $login_email = $fth['ph_user_email'];
                     $login_pwd = $fth['ph_user_password'];
                     $login_status = $fth['ph_user_status'];
+                    $login_profile_status = $fth['ph_user_profile_created'];
                     
                     if(($email == $login_email) && ($password == $login_pwd) && ($login_status == 1) && 
                     	($login_account_type == 'Non-Photographer')){
@@ -350,7 +351,7 @@ require_once('Config.php');
                         
                     }
                     elseif (($email == $login_email) && ($password == $login_pwd) && ($login_status == 1) && 
-                    	($login_account_type == 'Photographer')) {
+                    	($login_account_type == 'Photographer') && ($login_profile_status == 0)) {
                     	
 
                     	$_SESSION['username'] = $login_uname;
@@ -362,6 +363,22 @@ require_once('Config.php');
                         
                         echo "<script>";
                         echo "location.replace('CreateProfile.php');";
+                        echo "</script>"; 
+
+                    }
+                    elseif (($email == $login_email) && ($password == $login_pwd) && ($login_status == 1) && 
+                    	($login_account_type == 'Photographer') && ($login_profile_status == 1)) {
+                    	
+
+                    	$_SESSION['username'] = $login_uname;
+                        $_SESSION['email'] = $login_email;
+                        $_SESSION['id'] = $login_id;   
+                        $_SESSION['account_type'] = $login_account_type;   
+                        $_SESSION['account'] = $account_type;               
+                        
+                        
+                        echo "<script>";
+                        echo "location.replace('ManageProfile.php');";
                         echo "</script>"; 
 
                     }
