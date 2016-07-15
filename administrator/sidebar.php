@@ -18,18 +18,12 @@
                     
                 </li>
                 <li class="sub-menu">
-                    <a href="Complaints.php">
-                        <i class="fa fa-book"></i>
-                        <span>Complaints</span>
+                    <a href="Photographers_Profileinfo.php">
+                        <i class="fa fa-camera"></i>
+                        <span>Photgraphers Profile Information</span>
                     </a>
-                </li>
-                
-                <li class="sub-menu">
-                    <a href="Feedback.php">
-                        <i class="fa fa-envelope-o"></i>
-                        <span>Feedback Messages</span>
-                    </a>
-                </li>
+                    
+                </li>  
               
                 <li>
                     <a href="AddCategory.php">
