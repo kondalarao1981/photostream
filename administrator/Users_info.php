@@ -19,7 +19,7 @@ require_once('includes/AdminConfig.php');
     <meta name="author" content="ConsumerComplaints">
     <link rel="shortcut icon" href="images/favicon.html">
 
-    <title>Consumer Complaints Users Information</title>
+    <title>Fotogs Users Information</title>
 
     <!--Core CSS -->
     <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
@@ -90,7 +90,7 @@ require_once('includes/AdminConfig.php');
                                         $keyword = '0';
                                     }
                                     
-                                $up_act = mysql_query("UPDATE users_info SET user_status = '$keyword' WHERE user_id = '$user_id'");
+                                $up_act = mysql_query("UPDATE ph_users_info SET ph_user_status = '$keyword' WHERE ph_user_id = '$user_id'");
                                 if($up_act){
                             ?>
                                     <div class="alert alert-success fade in">
@@ -125,7 +125,7 @@ require_once('includes/AdminConfig.php');
                                     $dexp_val = $dexp_action_id[1];
                                     $duser_id = base64_decode($dexp_val);                        
                                     
-                                $del_act = mysql_query("DELETE FROM users_info WHERE user_id = '$duser_id'");                         
+                                $del_act = mysql_query("DELETE FROM ph_users_info WHERE ph_user_id = '$duser_id'");                         
                                 if($del_act){
                             ?>
                                     <div class="alert alert-success fade in">
@@ -186,9 +186,7 @@ require_once('includes/AdminConfig.php');
                                     <th>#</th>
                                     <th>User Name</th>
                                     <th>Email</th>
-                                    <th>Account</th>
-                                    <th>Gender</th>                                    
-                                    <th>Country</th>                            
+                                    <th>Account</th>                                              
                                     <th>Mobile</th>                                    
                                     <th>Status</th>
                                     <th>Member Since</th>
@@ -206,15 +204,13 @@ require_once('includes/AdminConfig.php');
                                 while($data = mysql_fetch_array($sel_users)){
                                     
                                     $profile_pic = $data['user_file_path'];
-                                    $username = $data['user_uname'];
-                                    $email = $data['user_email'];
-                                    $account_type = $data['user_account_type'];
-                                    $gender = $data['user_gender'];
-                                    $country = $data['user_country'];
-                                    $mobile = $data['user_mobile'];
-                                    $status = $data['user_status'];
-                                    $reg_date = $data['user_reg_date'];
-                                    $user_id = base64_encode($data['user_id']);
+                                    $username = $data['ph_user_name'];
+                                    $email = $data['ph_user_email'];
+                                    $account_type = $data['ph_user_account_type'];
+                                    $mobile = $data['ph_user_mobile'];
+                                    $status = $data['ph_user_status'];
+                                    $reg_date = $data['ph_user_reg_date'];
+                                    $user_id = base64_encode($data['ph_user_id']);
                                     $tokenkey = sha1(rand());
                                     
                                     if($profile_pic == ""){                        
@@ -235,8 +231,6 @@ require_once('includes/AdminConfig.php');
                                     <td><?php echo $username;?></td>
                                     <td><?php echo $email;?></td>
                                     <td><?php echo $account_type;?></td>
-                                    <td><?php echo $gender;?></td>
-                                    <td><?php echo $country;?></td>
                                     <td><?php echo $mobile;?></td>                                    
                                     <td><?php echo $status;?></td>
                                     <td><?php echo $reg_date;?></td>
