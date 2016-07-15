@@ -213,7 +213,7 @@ if(isset($_SESSION['id']) == ""){
                                         
                                 // Create Profile Variables      
                                 date_default_timezone_set('Asia/Calcutta');
-                                $business_name = $_POST['business_name'];
+                                $business_name = ucwords($_POST['business_name']);
                                 $business_role =  $_POST['business_role'];
                                 $business_address = $_POST['business_address'];
                                 $business_address_area = $_POST['business_address_area'];
@@ -331,6 +331,10 @@ if(isset($_SESSION['id']) == ""){
                                 
                                  $inst = mysql_query("INSERT INTO ph_photographers_info(ph_business_name, ph_business_role, ph_business_address, ph_business_address_area, ph_business_pincode, ph_business_city, ph_business_state, ph_business_regions, ph_business_languages, ph_business_logo_name, ph_business_logo_size, ph_business_logo_type, ph_business_logo_path, ph_business_specialization, ph_business_photostyle, ph_business_categories, ph_business_photography_price, ph_business_video_price, ph_business_photo_video_price, ph_business_equipment, ph_business_equipment_specs, ph_business_services, ph_business_payment_options, ph_business_cover_photo_name, ph_business_cover_photo_size, ph_business_cover_photo_type, ph_business_cover_photo_path, ph_business_photo_name, ph_business_photo_path, ph_business_video_name, ph_business_video_path, ph_user_id, ph_business_status, ph_business_reg_date, ph_business_updated_date)values('$business_name','$business_role', '$business_address','$business_address_area', '$pincode', '$city', '$state', '$regions_covered','$languages_known','$img_name', '$img_size', '$img_type', '$img_path', '$specialization', '$photo_style', '$categories', '$app_starting_price','$app_video_price','$app_photo_video_price','$equipment','$model_specs','$products','$payment','$cover_img_name','$cover_img_size','$cover_img_type','$cover_photonew_target','$photo_img_name','$photos_target_path','$video_name','$videos_target_path','".$_SESSION['id']."','$status','$reg_date','$updated_date')");
                         if($inst){
+                            
+                $update = mysql_query("UPDATE ph_users_info SET ph_user_profile_created = '1' WHERE ph_user_id = '".$_SESSION['id']."'");            
+                            
+                            
                     ?>
                                     
                         <div class="alert alert-border alert-success">
@@ -338,9 +342,7 @@ if(isset($_SESSION['id']) == ""){
                            <strong><i class="fa fa-check"></i> Success!</strong> Thanks for submitting your profile. Administrator will review your profile and publish your account to receive full benefits.
                        </div>
                                     
-                        <script type="text/JavaScript">                        
-                        setTimeout("location.href = 'ManageProfile.php';",1500);            
-                        </script>            
+                                   
                                     
                     <?php                
                         }else{
