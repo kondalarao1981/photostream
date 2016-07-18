@@ -76,111 +76,73 @@ if(isset($_SESSION['id']) == ""){
 <div id="main_wrapper">
 	
 	<?php require_once('Header.php');?>	
-
+        
+        <?php
+        
+            /*********** Fetching the data for profile information **********/
+        
+        $sel = mysql_query("SELECT * FROM ph_photographers_info WHERE ph_user_id = '".$_SESSION['id']."'");
+        $row = mysql_fetch_array($sel);
+        
+        $business_cover_photo = $row['ph_business_cover_photo_path'];
+        $business_name = $row['ph_business_name'];
+        
+        ?>
 
         <!-- Page Title -->
-	<section class="content_section white_section page_title has_bg_image member_header bg_header2 enar_parallax">
+	<section class="content_section white_section page_title has_bg_image member_header enar_parallax" style="background-image: url('<?php echo $business_cover_photo;?>');">
 		<div class="content clearfix">
-			<h1 class="">John Smith</h1>
-			<div class="breadcrumbs">
-				<a href="#">Home</a>
-				<span class="crumbs-spacer"><i class="ico-angle-right"></i></span>
-				<a href="#">Pages</a>
-			</div>
+			<h1 class=""><?php echo $business_name;?></h1>			
 		</div>
 	</section>
 	<!-- End Page Title -->
 	
-	<!-- Skills -->
-	<section class="content_section">
-		<div class="content row_spacer no_padding">	
-			<div class="rows_container clearfix">
-				
-				<div class="col-md-6">
-					<h2 class="title1 upper">Web Designer</h2>
-					<p>Lorem Ipsum is simply dummy text of the printing and typeseting industry Lorem in text Ipsum has been the industry standar dummyy text ever since the when an iunesi known printer of took a galley of type and scrambled it to make a typea specimen book There are many variations of the paes sages the Lorem Ipsum.</p>
-
-					<ul class="list1 gray clearfix">
-					    <li>Senior Web Designer</li>
-					    <li>23 Years Old</li>
-					    <li>7 Years Experience</li>
-					    <li>Work in USA</li>
-					    <li>500 Project by me</li>
-					    <li>Other Details ...</li>
+	<!-- Tabs Container -->
+			<div class="hm-tabs tabs2 fill_active">
+				<nav class="clearfix">
+					<ul class="tabs-navi">
+						<li><a data-content="vission" class="selected" href="#"><span></span>Vission</a></li>
+						<li><a data-content="solutions" href="#"><span></span>Solutions</a></li>
+						<li><a data-content="gallery" href="#"><span></span>Gallery</a></li>
+						<li><a data-content="technology" href="#"><span></span>Technology</a></li>
+						<li><a data-content="settings" href="#"><span></span>Settings</a></li>
 					</ul>
-					<div class="social_links_widget clearfix">
-						<a href="#" target="_blank" class="twitter"><i class="ico-twitter4"></i></a>
-						<a href="#" target="_blank" class="facebook"><i class="ico-facebook4"></i></a>        
-						<a href="#" target="_blank" class="googleplus"><i class="ico-google-plus"></i></a>     
-						<a href="#" target="_blank" class="linkedin"><i class="ico-linkedin3"></i></a>
-						<a href="#" target="_blank" class="vimeo"><i class="ico-vimeo"></i></a>
-						
-						<a href="skype:#?call" class="skype"><i class="ico-skype2"></i></a>
-						<a href="#" target="_blank" class="rss"><i class="ico-rss"></i></a>
-						<a href="#" target="_blank" class="flickr"><i class="ico-flickr2"></i></a>
-						<a href="#" target="_blank" class="picasa"><i class="ico-picassa"></i></a>
-						<a href="#" target="_blank" class="tumblr"><i class="ico-tumblr"></i></a>
-						
-						<!-- <a href="#" target="_blank" class="dribble"><i class="ico-dribbble"></i></a>
-						<a href="#" target="_blank" class="soundcloud"><i class="ico-soundcloud"></i></a>
-						<a href="#" target="_blank" class="instagram"><i class="ico-instagram3"></i></a>
-						<a href="#" target="_blank" class="pinterest"><i class="ico-pinterest-p"></i></a>
-						<a href="#" target="_blank" class="youtube"><i class="ico-youtube3"></i></a> -->
-					</div>
-				</div><!-- Grid 6 -->
+				</nav>
+			
+				<ul class="tabs-body">
+					<li data-content="vission" class="selected">
+						<h6>Why Choose Us ?</h6>
+						<p>Inbox Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum recusandae rem animi accusamus quisquam reprehenderit sed voluptates, numquam, quibusdam velit dolores repellendus tempora corrupti accusantium obcaecati voluptate totam eveniet laboriosam?</p>
 				
-				<div class="col-md-6">
-					<!-- <div class="main_title side_line upper small">
-						<h2><span class="line"></span>My Skills</h2>
-					</div> -->
-					<h2 class="title1 upper">My Skills</h2>
-					
-					<div class="progress_bar" data-progress-val="80" data-progress-animation="easeOutQuad" data-progress-delay="300" data-progress-color="#0BACB8">
-						<div class="fill_con">
-							<div class="fill">
-								<span class="title">Web Design</span>
-								<span class="value"><span class="num"></span><span>%</span></span>
-							</div>
-						</div>
-					</div>
-					<div class="progress_bar" data-progress-val="60" data-progress-animation="easeOutQuad" data-progress-delay="600" data-progress-color="#398098">
-						<div class="fill_con">
-							<div class="fill">
-								<span class="title">Programming</span>
-								<span class="value"><span class="num"></span><span>%</span></span>
-							</div>
-						</div>
-					</div>
-					<div class="progress_bar" data-progress-val="70" data-progress-animation="easeOutQuad" data-progress-delay="900" data-progress-color="">
-						<div class="fill_con">
-							<div class="fill">
-								<span class="title">HTML/CSS</span>
-								<span class="value"><span class="num"></span><span>%</span></span>
-							</div>
-						</div>
-					</div>
-					<div class="progress_bar" data-progress-val="100" data-progress-animation="easeOutQuad" data-progress-delay="1200" data-progress-color="#0EA07D">
-						<div class="fill_con">
-							<div class="fill">
-								<span class="title">Wordpress</span>
-								<span class="value"><span class="num"></span><span>%</span></span>
-							</div>
-						</div>
-					</div>
-					<div class="progress_bar" data-progress-val="40" data-progress-animation="easeOutQuad" data-progress-delay="1500" data-progress-color="#E74C3C">
-						<div class="fill_con">
-							<div class="fill">
-								<span class="title">Joomla</span>
-								<span class="value"><span class="num"></span><span>%</span></span>
-							</div>
-						</div>
-					</div>
-				</div><!-- Grid 6 -->
+						<p>Inbox Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum recusandae rem animi accusamus quisquam reprehenderit sed voluptates, numquam, quibusdam velit dolores repellendus tempora corrupti accusantium obcaecati voluptate totam eveniet laboriosam?</p>
+					</li>
 				
+					<li data-content="solutions">
+						<p>New Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non a voluptatibus, ex odit totam cumque nihil eos asperiores ea, labore rerum. Doloribus tenetur quae impedit adipisci, laborum dolorum eaque ratione quaerat, eos dicta consequuntur atque ex facere voluptate cupiditate incidunt.</p>
+				
+						<p>New Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non a voluptatibus, ex odit totam cumque nihil eos asperiores ea, labore rerum. Doloribus tenetur quae impedit adipisci, laborum dolorum eaque ratione quaerat, eos dicta consequuntur atque ex facere voluptate cupiditate incidunt.</p>
+					</li>
+				
+					<li data-content="gallery">
+						<p>Gallery Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque tenetur aut, cupiditate, libero eius rerum incidunt dolorem quo in officia.</p>
+				
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ipsa vero, culpa doloremque voluptatum consectetur mollitia, atque expedita unde excepturi id, molestias maiores delectus quos molestiae. Ab iure provident adipisci eveniet quisquam ratione libero nam inventore error pariatur optio facilis assumenda sint atque cumque, omnis perspiciatis. Maxime minus quam voluptatum provident aliquam voluptatibus vel rerum. Soluta nulla tempora aspernatur maiores! Animi accusamus officiis neque exercitationem dolore ipsum maiores delectus asperiores reprehenderit pariatur placeat, quaerat sed illum optio qui enim odio temporibus, nulla nihil nemo quod dicta consectetur obcaecati vel. Perspiciatis animi corrupti quidem fugit deleniti, atque mollitia labore excepturi ut.</p>
+					</li>
+				
+					<li data-content="technology">
+						<p>Store Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum recusandae rem animi accusamus quisquam reprehenderit sed voluptates, numquam, quibusdam velit dolores repellendus tempora corrupti accusantium obcaecati voluptate totam eveniet laboriosam?</p>
+				
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, enim, pariatur. Ab assumenda, accusantium! Consequatur magni placeat quae eos dicta, cum expedita sunt facilis est impedit possimus dolorum sequi nostrum nobis sit praesentium molestias nulla laudantium fugit corporis nam ut saepe harum ipsam? Debitis accusantium, omnis repudiandae modi, distinctio illo voluptatibus aperiam odio veritatis, quam perferendis eaque ullam. Temporibus tempore ad voluptates explicabo ea sit deleniti ipsum quos dolores tempora odio, ab corporis molestiae, eaque optio, perferendis! Cumque libero quia modi! Totam magni rerum id iusto explicabo distinctio, magnam, labore sed nemo expedita velit quam, perspiciatis non temporibus sit minus voluptatum. Iste, cumque sunt suscipit facere iusto asperiores, ullam dolorum excepturi quidem ea quibusdam deserunt illo. Nesciunt voluptates repellat ipsam.</p>
+					</li>
+				
+					<li data-content="settings">
+						<p>Settings Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam nam magni, ullam nihil a suscipit, ex blanditiis, adipisci tempore deserunt maiores. Nostrum officia, ratione enim eaque nihil quis ea, officiis iusto repellendus. Animi illo in hic, maxime deserunt unde atque a nesciunt? Non odio quidem deserunt animi quod impedit nam, voluptates eum, voluptate consequuntur sit vel, et exercitationem sint atque dolores libero dolorem accusamus ratione iste tenetur possimus excepturi. Accusamus vero, dignissimos beatae tempore mollitia officia voluptate quam animi vitae.</p>
+				
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique ipsam eum reprehenderit minima at sapiente ad ipsum animi doloremque blanditiis unde omnis, velit molestiae voluptas placeat qui provident ab facilis.</p>
+					</li>
+				</ul>
 			</div>
-		</div>
-	</section>
-	<!-- End Skills -->
+			<!-- End Tabs Container -->
 	
 	<!-- Client Say -->
 	<section class="content_section white_section enar_parallax bg5">
