@@ -70,61 +70,36 @@ require_once('Config.php');
 
 
         <!-- Page Title -->
-	<section class="content_section white_section page_title has_bg_image bg_header1 enar_parallax">
+	<section class="content_section white_section page_title has_bg_image bg_header6 enar_parallax">
 		<div class="content clearfix">
 			<h1 class="">About Us</h1>
-			<div class="breadcrumbs">
-				
+			<div class="breadcrumbs">				
 			</div>
 		</div>
 	</section>
 	<!-- End Page Title -->
-	
-	<!-- Icon Boxes Style 1 D -->
+        
+        <!-- Services Intro -->
 	<section class="content_section">
-		<div class="container icons_spacer">
-			<div class="main_title centered upper">
-				<h2><span class="line"><span class="dot"></span></span>Our Goals</h2>
-			</div>
-			<div class="icon_boxes_con style1 circle upper_title just_icon_border solid_icon clearfix">
-				<div class="col-md-4">
-					<div class="service_box">
-						<span class="icon"><i class="ico-tools-2"></i></span>
-						<div class="service_box_con centered">
-							<h3>Super Coding</h3>
-							<span class="desc">There are many variations of demo text passed sages of Lorem Ipsum available the majority.</span>
-							<a href="#" class="ser-box-link"><span></span>Read More</a>
-						</div>
-					</div>
+		<div class="content row_spacer no_padding">	
+			<div class="rows_container clearfix">
+				
+				<div class="col-md-8">
+					<h2 class="title1 upper">Our Services</h2>
+					<p><b>Lorem Ipsum is simply dummy text</b> of the printing and typeseting industry Lorem in text Ipsum has been the industry standar dummyy text ever since the when an iunesi known printer of took a galley of type and scrambled it to make a typea specimen book There are many variations of the paes sages the Lorem Ipsum.</p>
+					<p>There are many variations of demo text passed sages of Lorem Ipsum available but the majority Lorem Ipsum is simply dummy text of the printing and typeseting industry Lorem in text Ipsum has been the industry standar dummyy text ever since the when an iunesi known.</p>
 				</div>
 				<div class="col-md-4">
-					<div class="service_box">
-						<span class="icon"><i class="ico-mobile4"></i></span>
-						<div class="service_box_con centered">
-							<h3>Best User Interface</h3>
-							<span class="desc">There are many variations of demo text passed sages of Lorem Ipsum available the majority.</span>
-							<a href="#" class="ser-box-link"><span></span>Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="service_box">
-						<span class="icon"><i class="ico-key4"></i></span>
-						<div class="service_box_con centered">
-							<h3>Easy to Customize</h3>
-						<span class="desc">There are many variations of demo text passed sages of Lorem Ipsum available the majority.</span>
-						<a href="#" class="ser-box-link"><span></span>Read More</a>
-						</div>
-					</div>
+					<span class="spacer30"></span>
+					<img src="images/device.png" alt="Image Title">
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- End Icon Boxes Style 1 D -->
-	
-	
-	
-	<!-- Section -->
+	<!-- End Services Intro -->
+
+        
+        <!-- Section -->
 	<section class="content_section bg_gray">
 		<div class="container row_spacer">
 			<div class="rows_container clearfix">
@@ -270,152 +245,8 @@ require_once('Config.php');
 			<!-- End Rows Container -->
 		</div>
 	</section>
-	<!-- End Section -->
+	<!-- End Section -->	
 	
-	<!-- Skills 2 -->
-	<section class="content_section white_section bg_color5">
-		<span class="section_icon"><i class="ico-strategy"></i></span>
-		<div class="content row_spacer no_padding">	
-			<div class="main_title centered upper">
-			    <h2><span class="line"></span>Our Skills</h2>
-			</div>
-			
-			<div class="rows_container clearfix">
-				<div class="col-md-6">
-					<h2 class="title1 upper">Skills Description</h2>
-					<p>Lorem Ipsum is simply dummy text of the printing and typeseting industry Lorem in text Ipsum has been the industry standar dummyy text ever since the when an iunesi known printer of took a galley of type.</p>
-					<p>and scrambled it to make a typea specimen book There are many variations of the paes sages the Lorem Ipsum available, but the majority have to suffered alteration iner some form with injected randomised words which.</p>
-					<ul class="list1 black list_circle clearfix">
-						<li>Multiple Layout</li>
-						<li>Awesome Shortcodes</li>
-						<li>Browser Compatibility</li>
-						<li>Easy to Edit Animations</li>
-						<li>Parallax Effect</li>
-						<li>Responsive Design</li>
-						<li>Many Home Page Versions</li>
-						<li>Many Blog Pages</li>
-						<li>Multiple Layout</li>
-						<li>Awesome Shortcodes</li>
-					</ul>
-				</div><!-- Grid 6 -->
-				
-				<div class="col-md-6">
-					<div class="prog_bar2_con">
-						<span class="title"><i class="ico-laptop2"></i><span class="prog_bar2_title">Web Design</span></span>
-						<div class="progress_bar prog_bar2" data-progress-val="80" data-progress-animation="easeOutQuad" data-progress-delay="300" data-progress-color="#0BACB8">
-							<div class="fill_con2">
-								<div class="fill">
-									<span class="value"><span class="num"></span><span>%</span></span>
-								</div>
-							</div>
-							<div class="fill_con">
-								<div class="fill"></div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="prog_bar2_con">
-						<span class="title"><i class="ico-code2"></i><span class="prog_bar2_title">Programming</span></span>
-						<div class="progress_bar prog_bar2" data-progress-val="60" data-progress-animation="easeOutQuad" data-progress-delay="600" data-progress-color="#B97FDB">
-							<div class="fill_con2">
-								<div class="fill">
-									<span class="value"><span class="num"></span><span>%</span></span>
-								</div>
-							</div>
-							<div class="fill_con">
-								<div class="fill"></div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="prog_bar2_con">
-						<span class="title"><i class="ico-heart2"></i><span class="prog_bar2_title">HTML/CSS</span></span>
-						<div class="progress_bar prog_bar2" data-progress-val="70" data-progress-animation="easeOutQuad" data-progress-delay="900" data-progress-color="">
-							<div class="fill_con2">
-								<div class="fill">
-									<span class="value"><span class="num"></span><span>%</span></span>
-								</div>
-							</div>
-							<div class="fill_con">
-								<div class="fill"></div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="prog_bar2_con">
-						<span class="title"><i class="ico-search42"></i><span class="prog_bar2_title">Wordpress</span></span>
-						<div class="progress_bar prog_bar2" data-progress-val="100" data-progress-animation="easeOutQuad" data-progress-delay="1200" data-progress-color="#00BC90">
-							<div class="fill_con2">
-								<div class="fill">
-									<span class="value"><span class="num"></span><span>%</span></span>
-								</div>
-							</div>
-							<div class="fill_con">
-								<div class="fill"></div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="prog_bar2_con">
-						<span class="title"><i class="ico-key32"></i><span class="prog_bar2_title">Joomla</span></span>
-						<div class="progress_bar prog_bar2" data-progress-val="40" data-progress-animation="easeOutQuad" data-progress-delay="1500" data-progress-color="#FF513E">
-							<div class="fill_con2">
-								<div class="fill">
-									<span class="value"><span class="num"></span><span>%</span></span>
-								</div>
-							</div>
-							<div class="fill_con">
-								<div class="fill"></div>
-							</div>
-						</div>
-					</div>
-				</div><!-- Grid 6-->
-			</div>
-		</div>
-	</section>
-	<!-- End Skills 2 -->
-	
-	<!-- Features 3-->
-	<section class="content_section">
-		<div class="container row_spacer clearfix">
-			<div class="content">
-				<div class="main_title centered upper">
-					<h2><span class="line"><span class="dot"></span></span>Our Features</h2>
-				</div>
-			</div>
-			<!-- Rows Container -->
-			<div class="icon_boxes_con style2 icon_box_no_border upper_title clearfix">
-				<div class="col-md-6">
-					<div class="service_box">
-						<a href="#"><span class="icon circle"><i class="ico-desktop2"></i></span></a>
-						<div class="service_box_con">
-							<h3>Premium Sliders Included</h3>
-							<span class="desc">There are many variations of demo text passed sages of Lorem Ipsum available the majority.</span>
-						</div>
-					</div>
-					<div class="service_box">
-						<a href="#"><span class="icon circle"><i class="ico-tablet3"></i></span></a>
-						<div class="service_box_con">
-							<h3>100% Responsive Layout</h3>
-							<span class="desc">There are many variations of demo text passed sages of Lorem Ipsum available the majority.</span>
-						</div>
-					</div>
-					<div class="service_box">
-						<a href="#"><span class="icon circle"><i class="ico-beaker"></i></span></a>
-						<div class="service_box_con">
-							<h3>Powerful Performance</h3>
-							<span class="desc">There are many variations of demo text passed sages of Lorem Ipsum available the majority.</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<img src="images/looking1.jpg" alt="Image Title">
-				</div>
-			</div>
-			<!-- End Rows Container -->
-		</div>
-	</section>
-	<!-- End Features 3 -->
 	
 	<!-- Clients 1 -->
 	<section class="content_section white_section bg_color3">
