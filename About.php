@@ -84,15 +84,21 @@ require_once('Config.php');
 		<div class="content row_spacer no_padding">	
 			<div class="rows_container clearfix">
 				
-				<div class="col-md-8">
-					<h2 class="title1 upper">Our Services</h2>
-					<p><b>Lorem Ipsum is simply dummy text</b> of the printing and typeseting industry Lorem in text Ipsum has been the industry standar dummyy text ever since the when an iunesi known printer of took a galley of type and scrambled it to make a typea specimen book There are many variations of the paes sages the Lorem Ipsum.</p>
-					<p>There are many variations of demo text passed sages of Lorem Ipsum available but the majority Lorem Ipsum is simply dummy text of the printing and typeseting industry Lorem in text Ipsum has been the industry standar dummyy text ever since the when an iunesi known.</p>
+				<div class="col-md-12">
+					<h2 class="title1 upper">Our History</h2>
+                                        <p style="text-align: justify;"><b>Fotogs</b> is in the business of helping you record and preserve your happiest memories.
+
+We have put together India’s most comprehensive photographers’ directory to help you find the perfect pro shooter for all your photography needs. You can search for photographers based on your budget, location and preferred photography style.
+
+From weddings to engagements to kids’ birthdays, graduation ceremonies, corporate events, editorial or advertising work, we have your professional photography needs covered. Simply search or post your assignment on Fotogs Classifieds and wait for the pros to contact you.
+
+Once your photographer finishes shooting, you can preserve the results forever in one of our stunningly designed, immaculately crafted, internationally acclaimed photobooks and make your memories truly timeless.
+
+Whether you are a consumer or a professional photographer, Fotogs has a host of cutting-edge technological products and services to make your life even simpler. We have iOS & Android mobile apps that help you securely share stunning digital versions of your photobook. Our desktop client Compose allows you to submit your predesigned orders online and our online Preview software allows online collaboration of your photobook design with your designer. We have also built Vivyo – our hosted website builder specially designed for photography. Fotogs has it all and more.
+
+Experience the Fotogs difference now</p>
 				</div>
-				<div class="col-md-4">
-					<span class="spacer30"></span>
-					<img src="images/device.png" alt="Image Title">
-				</div>
+				
 			</div>
 		</div>
 	</section>
@@ -106,14 +112,14 @@ require_once('Config.php');
 				<!-- Tabs Container -->
 				<div class="col-md-6">
 					<div class="main_title upper small">
-						<h2><span class="line"><span class="dot"></span></span>Why Choose Us?</h2>
+						<h2><span class="line"><span class="dot"></span></span>Why Choose Fotogs?</h2>
 					</div>
 					<div class="hm-tabs tabs1">
 						<nav>
 							<ul class="tabs-navi">
 								<li><a data-content="quality" class="selected" href="#"><span></span>Quality</a></li>
 								<li><a data-content="design" href="#"><span></span>Design</a></li>
-								<li><a data-content="programming" href="#"><span></span>Programming</a></li>
+								<!--<li><a data-content="programming" href="#"><span></span>Programming</a></li>-->
 							</ul>
 							<!-- tabs-navi -->
 						</nav>
@@ -134,14 +140,7 @@ require_once('Config.php');
 										<li>Many Blog Pages</li>
 									</ul>
 								</div>
-								<div class="col-md-6">
-									<a href="images/portfolio/porto5.jpg" class="magnific-popup img_popup">
-										<img src="images/portfolio/porto5.jpg" alt="Image Title">
-										<span>
-											<i class="ico-maximize"></i>
-										</span>
-									</a>
-								</div>
+								
 								<div class="clear"></div>
 							</li>
 						
@@ -160,42 +159,11 @@ require_once('Config.php');
 										<li>Many Blog Pages</li>
 									</ul>
 								</div>
-								<div class="col-md-6">
-									<a href="images/portfolio/porto3.jpg" class="magnific-popup img_popup">
-										<img src="images/portfolio/porto3.jpg" alt="Image Title">
-										<span>
-											<i class="ico-maximize"></i>
-										</span>
-									</a>
-								</div>
+								
 								<div class="clear"></div>
 							</li>
 						
-							<li data-content="programming">
-							    <p>Lorem Ipsum is simply dummy text of the printing and typeseting industry Lorem in text Ipsum has been the industry standar dummyy text ever since the when an iunesi known.</p>
-						                
-								<div class="col-md-6">
-									<ul class="list3 clearfix">
-										<li>Multiple Layout</li>
-										<li>Awesome Shortcodes</li>
-										<li>Browser Compatibility</li>
-										<li>Easy to Edit Animations</li>
-										<li>Parallax Effect</li>
-										<li>Responsive Design</li>
-										<li>Many Home Page Versions</li>
-										<li>Many Blog Pages</li>
-									</ul>
-								</div>
-								<div class="col-md-6">
-									<a href="images/portfolio/porto4.jpg" class="magnific-popup img_popup">
-										<img src="images/portfolio/porto4.jpg" alt="Image Title">
-										<span>
-											<i class="ico-maximize"></i>
-										</span>
-									</a>
-								</div>
-								<div class="clear"></div>
-							</li>
+							
 						</ul>
 					</div>
 				</div>
@@ -228,7 +196,7 @@ require_once('Config.php');
 							</div>
 						</div>
 						<div class="enar_occ_container" data-expanded="false">
-							<span class="enar_occ_title"><i class="ico-check3"></i>The best sales on the Country</span>
+							<span class="enar_occ_title"><i class="ico-check3"></i>The best in the Country</span>
 							<div class="enar_occ_content">
 								<div class="acc_content">
 								<p>Lorem Ipsum is simply dummy text of the printing and typeseting industry Lorem in text Ipsum has been the industry standar dummyy text ever since the when an iunesi known.</p>
