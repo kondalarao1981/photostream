@@ -19,7 +19,7 @@ require_once('includes/AdminConfig.php');
     <meta name="author" content="ConsumerComplaints">
     <link rel="shortcut icon" href="images/favicon.html">
 
-    <title>Consumer Complaints Feedback Information</title>
+    <title>Fotogs Feedback Information</title>
 
     <!--Core CSS -->
     <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
@@ -85,7 +85,7 @@ require_once('includes/AdminConfig.php');
                                     $dexp_val = $dexp_action_id[1];
                                     $duser_id = base64_decode($dexp_val);                        
                                     
-                                $del_act = mysql_query("DELETE FROM feedback_info WHERE feedback_id = '".$duser_id."'");                         
+                                $del_act = mysql_query("DELETE FROM ph_feedback_info WHERE ph_feedback_id = '".$duser_id."'");                         
                                 if($del_act){
                             ?>
                                     <div class="alert alert-success fade in">
@@ -144,8 +144,10 @@ require_once('includes/AdminConfig.php');
                                 <tr>
                                     
                                     <th>User Name</th>
+                                    <th>Subject</th>
                                     <th>Message</th>
-                                    <th>Email</th>                                    
+                                    <th>Email</th>  
+                                    <th>Phone</th>                                     
                                     <th>IP Address</th>                                    
                                     <th>Browser</th>                            
                                     <th>Date</th>                                    
@@ -159,26 +161,30 @@ require_once('includes/AdminConfig.php');
                                 
                             
                                 //////// Query to retreive total number of messages
-                                $sel_users = mysql_query("SELECT * FROM feedback_info");
+                                $sel_users = mysql_query("SELECT * FROM ph_feedback_info");
                                 while($data = mysql_fetch_array($sel_users)){
                                     
                                     
-                                    $fusername = $data['feedback_user_name'];
-                                    $femail = $data['feedback_user_email'];
-                                    $fmessage = $data['feedback_message'];
-                                    $fip_address = $data['feedback_user_ip'];
-                                    $fbrowser = $data['feedback_user_browser'];
-                                    $fdate = $data['feedback_date'];
-                                    $fstatus = $data['feedback_status'];
-                                    $feedback_id = base64_encode($data['feedback_id']);
+                                    $fusername = $data['ph_feedback_user_name'];
+                                    $femail = $data['ph_feedback_user_email'];
+                                    $fphone = $data['ph_feedback_user_phone'];
+                                    $fsubject = $data['ph_feedback_user_subject'];
+                                    $fmessage = $data['ph_feedback_message'];
+                                    $fip_address = $data['ph_feedback_user_ip'];
+                                    $fbrowser = $data['ph_feedback_user_browser'];
+                                    $fdate = $data['ph_feedback_date'];
+                                    $fstatus = $data['ph_feedback_status'];
+                                    $feedback_id = base64_encode($data['ph_feedback_id']);
                                     $tokenkey = sha1(rand());                                   
                                    
                                     
                                 ?>
                                 <tr class="">
                                     <td><?php echo $fusername;?></td>
+                                    <td><?php echo $fsubject;?></td>
                                     <td><?php echo $fmessage;?></td>
                                     <td><?php echo $femail;?></td>
+                                    <td><?php echo $fphone;?></td>
                                     <td><?php echo $fip_address;?></td>
                                     <td><?php echo $fbrowser;?></td>
                                     <td><?php echo $fdate;?></td>                                    
