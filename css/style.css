@@ -905,6 +905,13 @@ textarea:-moz-placeholder {
 .bg_header5 {
 	background-image: url("../images/bg_header5.html");
 }
+.bg_header6 {
+	background-image: url("../images/bg11.jpg");
+}
+.bg_header7 {
+	background-image: url("../images/contact.jpg");
+}
+
 .bg_fixed {
 	min-height: 100%;
 	background-size: cover;
