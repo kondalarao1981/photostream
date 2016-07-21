@@ -16,7 +16,7 @@ require_once('Config.php');
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 	<!-- Important stuff for SEO, don't neglect. (And don't dupicate values across your site!) -->
-	<title>About Us | Meet Our Leaders</title>
+	<title>About Us | Fotogs - The Professional Photographers | Preserving Memories</title>
 	<meta name="author" content="" />
 	<meta name="description" content="" />
 	
