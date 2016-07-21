@@ -9,11 +9,11 @@ require_once('includes/AdminConfig.php');
     }
     
     //////// Query to retreive total number of complaints that were received
-    $sel_data = mysql_query("SELECT * FROM complaints_info");
+    $sel_data = mysql_query("SELECT * FROM ph_complaints_info");
     $no_of_complaints = mysql_num_rows($sel_data); 
     
      //////// Query to retreive total number of registered users
-    $sel_users = mysql_query("SELECT * FROM users_info");
+    $sel_users = mysql_query("SELECT * FROM ph_users_info");
     $no_of_users = mysql_num_rows($sel_users); 
     
 ?>
