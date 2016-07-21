@@ -24,6 +24,14 @@
                     </a>
                     
                 </li>  
+                
+                <li class="sub-menu">
+                    <a href="Feedback.php">
+                        <i class="fa fa-envelope-o"></i>
+                        <span>Feedback Messages</span>
+                    </a>
+                    
+                </li>
               
                 <li>
                     <a href="AddCategory.php">
