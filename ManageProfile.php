@@ -96,25 +96,36 @@ if(isset($_SESSION['id']) == ""){
 		</div>
 	</section>
 	<!-- End Page Title -->
+        
+        <div class="alert alert-danger margin-bottom-30"><!-- DANGER -->
+            Your profile is currently under verification. You will receive full benefits once your profile is published.
+        </div>
+        
+        
+                                <div>
+                                    <a class="btn_a color1 medium_btn bottom_space" target="_self" href="PreviewProfile.php" style="margin-left: 1130px;">
+                                            <span><i class="in_left ico-user5"></i><span>PREVIEW PROFILE</span><i class="in_right ico-user5"></i></span>
+                                    </a>
+				</div>
 	
 	<!-- Tabs Container -->
 			<div class="hm-tabs tabs2 fill_active">
 				<nav class="clearfix">
 					<ul class="tabs-navi">
-						<li><a data-content="vission" class="selected" href="#"><span></span>Vission</a></li>
-						<li><a data-content="solutions" href="#"><span></span>Solutions</a></li>
-						<li><a data-content="gallery" href="#"><span></span>Gallery</a></li>
-						<li><a data-content="technology" href="#"><span></span>Technology</a></li>
-						<li><a data-content="settings" href="#"><span></span>Settings</a></li>
-					</ul>
+						<li><a data-content="vission" class="selected" href="#"><span></span>ASSIGNMENTS</a></li>
+						<li><a data-content="solutions" href="#"><span></span>PHOTOS</a></li>
+						<li><a data-content="gallery" href="#"><span></span>VIDEOS</a></li>
+						<!--<li><a data-content="technology" href="#"><span></span>Assignments</a></li>-->
+                                        </ul>
 				</nav>
 			
 				<ul class="tabs-body">
-					<li data-content="vission" class="selected">
-						<h6>Why Choose Us ?</h6>
-						<p>Inbox Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum recusandae rem animi accusamus quisquam reprehenderit sed voluptates, numquam, quibusdam velit dolores repellendus tempora corrupti accusantium obcaecati voluptate totam eveniet laboriosam?</p>
+                                    <li data-content="vission" class="selected">
+						
+                                            <p>New Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non a voluptatibus, ex odit totam cumque nihil eos asperiores ea, labore rerum. Doloribus tenetur quae impedit adipisci, laborum dolorum eaque ratione quaerat, eos dicta consequuntur atque ex facere voluptate cupiditate incidunt.</p>
 				
-						<p>Inbox Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum recusandae rem animi accusamus quisquam reprehenderit sed voluptates, numquam, quibusdam velit dolores repellendus tempora corrupti accusantium obcaecati voluptate totam eveniet laboriosam?</p>
+						<p>New Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non a voluptatibus, ex odit totam cumque nihil eos asperiores ea, labore rerum. Doloribus tenetur quae impedit adipisci, laborum dolorum eaque ratione quaerat, eos dicta consequuntur atque ex facere voluptate cupiditate incidunt.</p>      
+                                            
 					</li>
 				
 					<li data-content="solutions">
@@ -143,189 +154,8 @@ if(isset($_SESSION['id']) == ""){
 				</ul>
 			</div>
 			<!-- End Tabs Container -->
-	
-	<!-- Client Say -->
-	<section class="content_section white_section enar_parallax bg5">
-		<div class="bg_overlay">
-			<div class="content row_spacer clearfix">	
-				<div class="main_title centered upper">
-					<h2><span class="line"></span>What they say about me</h2>
-				</div>                
-				<div class="normal_text_slider client_say_slider">
-					<div class="c_say">
-						<div class="centered">
-							<span class="client_img">
-								<span>
-									<img src="images/clients/client1.jpg" alt="client name">
-								</span>
-							</span>
-						</div>
-						<span class="client_details">
-							<span class="name">Alan Snow</span> - 
-							<span class="url">www.yourwebsite.com</span>
-						</span>
-						<span class="desc">
-							There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-						</span>
-					</div>
-					<div class="c_say">
-						<div class="centered">
-							<span class="client_img">
-								<span>
-									<img src="images/clients/client2.jpg" alt="client name">
-								</span>
-							</span>
-						</div>
-						<span class="client_details">
-							<span class="name">John Doe</span> - 
-							<span class="url">www.yourwebsite.com</span>
-						</span>
-						<span class="desc">
-							There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-						</span>
-					</div>
-					<div class="c_say">
-						<div class="centered">
-							<span class="client_img">
-								<span>
-									<img src="images/clients/client3.jpg" alt="client name">
-								</span>
-							</span>
-						</div>
-						<span class="client_details">
-							<span class="name">Harry John</span> - 
-							<span class="url">www.yourwebsite.com</span>
-						</span>
-						<span class="desc">
-							There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-						</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Client Say  -->
-	
-	<!-- Works -->
-	<section class="content_section">
-
-		<div class="content row_spacer">
-			<div class="main_title centered upper">
-				<h2><span class="line"><span class="dot"></span></span>Some of my work</h2>
-			</div>
-			
-			<div class="related_posts">
-				<div class="related_posts_con">
-					<div class="related_posts_slide">
-						<div class="related_img_con">
-							<a href="#" class="related_img">
-								<img alt="" src="images/blog/blog1.jpg">
-								<span><i class="ico-pencil4"></i></span>
-							</a>
-						</div>
-						<a class="related_title" href="#">Edge of The Road</a>
-						<span class="post_date">2015/04/12</span>
-					</div>
-					<div class="related_posts_slide">
-						<div class="related_img_con">
-							<a href="#" class="related_img">
-								<img alt="" src="images/blog/blog2.jpg">
-								<span><i class="ico-image4"></i></span>
-							</a>
-						</div>
-						<a class="related_title" href="#">Train Your Self</a>
-						<span class="post_date">2015/04/13</span>
-					</div>
-					<div class="related_posts_slide">
-						<div class="related_img_con">
-							<a href="#" class="related_img">
-								<img alt="" src="images/blog/blog3.jpg">
-								<span><i class="ico-sound3"></i></span>
-							</a>
-						</div>
-						<a class="related_title" href="#">Most Beautiful Girl</a>
-						<span class="post_date">2015/04/14</span>
-					</div>
-					<div class="related_posts_slide">
-						<div class="related_img_con">
-							<a href="#" class="related_img">
-								<img alt="" src="images/blog/blog4.jpg">
-								<span><i class="ico-quote-right"></i></span>
-							</a>
-						</div>
-						<a class="related_title" href="#">Fly Into The Future</a>
-						<span class="post_date">2015/04/15</span>
-					</div>
-					<div class="related_posts_slide">
-						<div class="related_img_con">
-							<a href="#" class="related_img">
-								<img alt="" src="images/blog/blog5.jpg">
-								<span><i class="ico-gallery"></i></span>
-							</a>
-						</div>
-						<a class="related_title" href="#">Dawn of Justice</a>
-						<span class="post_date">2015/04/16</span>
-					</div>
-					<div class="related_posts_slide">
-						<div class="related_img_con">
-							<a href="#" class="related_img">
-								<img alt="" src="images/blog/blog6.jpg">
-								<span><i class="ico-comment2"></i></span>
-							</a>
-						</div>
-						<a class="related_title" href="#">Guardians of the Earth</a>
-						<span class="post_date">2015/04/17</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Works -->
-	
-	<!-- Clients -->
-	<section class="content_section bg_gray border_b_n">
-		<div class="content row_spacer clearfix">	                
-			<div class="our_client_slider">
-				<div class="c_logo">
-					<img src="images/clients/logo1.png" alt="client name">
-				</div>
-				<div class="c_logo">
-					<img src="images/clients/logo2.png" alt="client name">
-				</div>
-				<div class="c_logo">
-					<img src="images/clients/logo3.png" alt="client name">
-				</div>
-				<div class="c_logo">
-					<img src="images/clients/logo4.png" alt="client name">
-				</div>
-				<div class="c_logo">
-					<img src="images/clients/logo5.png" alt="client name">
-				</div>
-				<div class="c_logo">
-					<img src="images/clients/logo6.png" alt="client name">
-				</div>
-				<div class="c_logo">
-					<img src="images/clients/logo1.png" alt="client name">
-				</div>
-				<div class="c_logo">
-					<img src="images/clients/logo2.png" alt="client name">
-				</div>
-				<div class="c_logo">
-					<img src="images/clients/logo3.png" alt="client name">
-				</div>
-				<div class="c_logo">
-					<img src="images/clients/logo4.png" alt="client name">
-				</div>
-				<div class="c_logo">
-					<img src="images/clients/logo5.png" alt="client name">
-				</div>
-				<div class="c_logo">
-					<img src="images/clients/logo6.png" alt="client name">
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Clients  -->
+                        
+                        
 	
 
 
