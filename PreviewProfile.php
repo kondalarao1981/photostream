@@ -237,37 +237,7 @@ We offer exclusive professional photography services in Wedding -  <?php echo $b
 							<?php } ?>
 						</div>
 					</div>
-                                </div>
-                                        
-                                    <!-- Displayed Photos Here -->
-                                    
-                                        <!-- grid 6-->
-                                   <!-- <div class="col-md-12">-->
-                                        
-                                            <!-- Gallery -->
-                                           <!-- <div class="thumbs_gall_slider_con content_thumbs_gall gall_arrow2 clearfix">
-                                                    <div class="thumbs_gall_slider_larg owl-carousel">
-                                                        <?php for($i=0;$i<$count_photo_path-1;$i++){?>
-                                                            <div class="item">
-
-                                                                    <a href="<?php echo $exp_business_photo_path[$i];?>">
-                                                                    <img src="<?php echo $exp_business_photo_path[$i];?>" alt="Image Title">
-                                                                    </a>
-
-                                                            </div>	
-                                                         <?php } ?>
-                                                    </div>
-                                                    <div class="gall_thumbs owl-carousel">
-                                                         <?php for($j=0;$j<$count_photo-1;$j++){?>
-                                                            <div class="item"><img src="<?php echo $exp_business_photo_path[$j];?>" alt="Image Title"></div>
-                                                         <?php } ?>
-                                                    </div>
-                                            </div>-->
-                                            <!-- End Gallery -->
-                                    <!--</div>-->
-                                    <!-- End grid 6-->
-                                    
-                                    <!-- Displayed Photos Ends Here -->
+                                </div>                      
                                     
                                 </li>
 
@@ -276,6 +246,7 @@ We offer exclusive professional photography services in Wedding -  <?php echo $b
                                     <!-- Videos displayed here -->
                                     <!-- grid 6-->
                                     <div class="col-md-6">
+                                        <?php if($business_video_name!= "" && $business_video_path!= ""){?>
                                             <div class="bordered_content bordered">
                                                 <?php for($k=0;$k<$count_video_path-1;$k++){?>
                                                     <div class="embed-container">
@@ -286,9 +257,14 @@ We offer exclusive professional photography services in Wedding -  <?php echo $b
                                                     </div>
                                                 <?php } ?>
                                             </div>
+                                        <?php }else{ ?>
+                                            <div class="bordered_content bordered">
+                                                <p>Videos not posted yet.</p>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                     <!-- End grid 6-->
-                                    <!-- isplayed videos ends here -->
+                                    <!-- Displayed videos ends here -->
                                     
                                 </li>
 
