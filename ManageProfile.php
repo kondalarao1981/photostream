@@ -86,6 +86,7 @@ if(isset($_SESSION['id']) == ""){
         
         $business_cover_photo = $row['ph_business_cover_photo_path'];
         $business_name = $row['ph_business_name'];
+        $business_status = $row['ph_business_status'];
         
         ?>
 
@@ -97,10 +98,13 @@ if(isset($_SESSION['id']) == ""){
 	</section>
 	<!-- End Page Title -->
         
+        <?php if($business_status!= 1){?>
         <div class="alert alert-danger margin-bottom-30"><!-- DANGER -->
             Your profile is currently under verification. You will receive full benefits once your profile is published.
         </div>
+        <?php } ?>
         
+        <br />
         
                                 <div>
                                     <a class="btn_a color1 medium_btn bottom_space" target="_self" href="PreviewProfile.php" style="margin-left: 1130px;">
