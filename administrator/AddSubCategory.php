@@ -7,9 +7,8 @@ require_once('includes/AdminConfig.php');
     
         echo "<script>";
         echo "location.replace('index.php');";
-        echo "</script>";
+        echo "</script>";       
         
-        //header('Location: index.php');
     }
 ?>
 <!DOCTYPE html>
@@ -23,7 +22,7 @@ require_once('includes/AdminConfig.php');
     <meta name="author" content="ConsumerComplaints">
     <link rel="shortcut icon" href="images/favicon.html">
 
-    <title>Consumer Complaints Users Information</title>       
+    <title>Fotogs Subcategory Information</title>       
 
     <!--Core CSS -->
     <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
@@ -87,7 +86,7 @@ require_once('includes/AdminConfig.php');
                          } 
                          else{         
                         
-                         $sel1 = mysql_query("SELECT * FROM cc_subcategory WHERE cat_name = '$subcat_name'");
+                         $sel1 = mysql_query("SELECT * FROM ph_category WHERE cat_name = '$subcat_name'");
                             ///// Fetch the data from Database
                              $row = mysql_fetch_array($sel1);
                     
@@ -101,7 +100,7 @@ require_once('includes/AdminConfig.php');
             <?php
                    }  
                     else{
-                        $inst = mysql_query("INSERT INTO cc_category(pcat, cat_name, cat_status) VALUES('$cat_id','$subcat_name', '$subcat_status')");
+                        $inst = mysql_query("INSERT INTO ph_category(pcat, cat_name, cat_status) VALUES('$cat_id','$subcat_name', '$subcat_status')");
                             
                              if($inst){
             ?>
@@ -125,7 +124,7 @@ require_once('includes/AdminConfig.php');
                                     <select class="form-control" name="category_name" style="width: 300px" id="source">
                                       <option value="0">-- Select Category --</option>
                                    <?php 
-                                   $sel = mysql_query("SELECT * FROM cc_category WHERE pcat = 0 ORDER BY cat_name ASC"); 
+                                   $sel = mysql_query("SELECT * FROM ph_category WHERE pcat = 0 ORDER BY cat_name ASC"); 
                                    while($data = mysql_fetch_array($sel)){
                                     $category = $data['cat_name'];
                                     $cat_id = $data['cat_id'];
