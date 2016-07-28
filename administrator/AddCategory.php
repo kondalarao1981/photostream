@@ -9,7 +9,7 @@ require_once('includes/AdminConfig.php');
     echo "location.replace('index.php');";
     echo "</script>";
         
-        //header('Location: index.php');
+        
     }
 ?>
 <!DOCTYPE html>
@@ -88,7 +88,7 @@ require_once('includes/AdminConfig.php');
                          }
                          else{
                          
-                         $sel = mysql_query("SELECT cat_name FROM cc_category WHERE cat_name = '$cat_name'");
+                         $sel = mysql_query("SELECT cat_name FROM ph_category WHERE cat_name = '$cat_name'");
                     
                     ///// Fetch the data from Database
                     $data = mysql_fetch_array($sel);
@@ -104,7 +104,7 @@ require_once('includes/AdminConfig.php');
             <?php
                    }  
                     else{
-                        $inst = mysql_query("INSERT INTO cc_category(pcat, cat_name,cat_status) VALUES('$pcat','$cat_name', '$cat_status')");
+                        $inst = mysql_query("INSERT INTO ph_category(pcat, cat_name,cat_status) VALUES('$pcat','$cat_name', '$cat_status')");
                             
                              if($inst){
             ?>
