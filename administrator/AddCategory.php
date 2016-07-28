@@ -23,7 +23,7 @@ require_once('includes/AdminConfig.php');
     <meta name="author" content="ConsumerComplaints">
     <link rel="shortcut icon" href="images/favicon.html">
 
-    <title>Consumer Complaints Categories</title>
+    <title>Fotogs Categories</title>
 
     <!--Core CSS -->
     <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
