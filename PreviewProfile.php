@@ -99,7 +99,7 @@ if(isset($_SESSION['id']) == ""){
         $business_photo_path = $row['ph_business_photo_path'];
         $business_video_name = $row['ph_business_video_name'];
         $business_video_path = $row['ph_business_video_path'];
-        $business_starting_prcie = $row['ph_business_photography_price'];
+        $business_starting_price = $row['ph_business_photography_price'];
         $business_categories = $row['ph_business_categories'];
         $business_services = $row['ph_business_services'];
         $exp_business_services = explode(',', $business_services);
@@ -108,8 +108,8 @@ if(isset($_SESSION['id']) == ""){
         $count_photo = count($exp_business_photo);
         $exp_business_photo_path = explode(',', $business_photo_path);
         $count_photo_path = count($exp_business_photo);
-        $exp_business_video_path = explode(',', $business_video_path);
-        $count_video_path = count($exp_business_video_path);
+        //$exp_business_video_path = explode(',', $business_video_path);
+        //$count_video_path = count($exp_business_video_path);
         
         
         //echo "<pre>";
@@ -213,7 +213,7 @@ We offer exclusive professional photography services in Wedding -  <?php echo $b
                                     <div class="col-md-6">
                                         
                                         <h2 class="title1 upper">Price Starting from</h2>
-                                        <h2><?php echo $business_starting_prcie;?></h2>
+                                        <h2><?php echo $business_starting_price;?></h2>
                                         
                                     </div>
                                     
@@ -246,22 +246,18 @@ We offer exclusive professional photography services in Wedding -  <?php echo $b
                                     <!-- Videos displayed here -->
                                     <!-- grid 6-->
                                     <div class="col-md-6">
-                                        <?php if($business_video_name!= "" && $business_video_path!= ""){?>
+                                        
                                             <div class="bordered_content bordered">
-                                                <?php for($k=0;$k<$count_video_path-1;$k++){?>
+                                                
                                                     <div class="embed-container">
-                                                            <a class="hm_vid_con popup-vimeo" href="<?php echo $exp_business_video_path[$k];?>" data-rel="magnific-popup"></a>
-                                                            <iframe type="text/html" width="640" height="390"
-  src="<?php echo $exp_business_video_path[$k];?>" frameborder="0" autoplay="1"></iframe>
-                                                            <!--<iframe width="100%" src="<?php echo $exp_business_video_path[$k];?>" frameborder="1" autoplay="0" allowfullscreen></iframe>-->
+                                                           <!-- <a class="hm_vid_con popup-vimeo" href="<?php echo $business_video_path;?>" data-rel="magnific-popup"></a>-->
+                                                            
+                                                            <?php echo $business_video_path;?>
+                                                            <iframe width="560" height="315" src="<?php echo $business_video_path;?>" frameborder="0" allowfullscreen></iframe>                                    
+                                                           
                                                     </div>
-                                                <?php } ?>
+                                               
                                             </div>
-                                        <?php }else{ ?>
-                                            <div class="bordered_content bordered">
-                                                <p>Videos not posted yet.</p>
-                                            </div>
-                                        <?php } ?>
                                     </div>
                                     <!-- End grid 6-->
                                     <!-- Displayed videos ends here -->
