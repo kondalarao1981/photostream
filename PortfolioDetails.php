@@ -246,6 +246,7 @@ if(isset($_SESSION['id']) == ""){
                                 $cover_img_type = $_FILES['ft_cover_photo']['type'];
                                 $cover_img_path = $_FILES['ft_cover_photo']['tmp_name']; 
                                 
+                                
                                 // Desired folder structure
                                 $structure = 'photographers/'.ucwords($business_name).'/Cover Photo/';
                                 if(!is_dir($structure)){
@@ -256,7 +257,7 @@ if(isset($_SESSION['id']) == ""){
                                     $moved_file = move_uploaded_file($cover_img_path, $new_target);
                                 }                                  
                                
-                                
+                                                    
                                 if (isset($_FILES['ft_photos'])) {
                                     
                                     $photos = $_FILES['ft_photos'];
@@ -282,7 +283,7 @@ if(isset($_SESSION['id']) == ""){
                                     
                                 }                    
                                 
-                                if (isset($_FILES['ft_videos'])) {
+                                /*if (isset($_FILES['ft_videos'])) {
                                     
                                     $videos = $_FILES['ft_videos'];
                                     $fileCount = count($videos['name']);
@@ -307,10 +308,10 @@ if(isset($_SESSION['id']) == ""){
                     
                                     }          
                                     
-                                } 
+                                } */
                                 
-                                
-                                
+                                $category = $_POST['ft_category'];            
+                                $videos_target_path = $_POST['ft_videos'];
                                 $reg_date = date('M d, Y h:i:s A');
                                 $updated_date = date('M d, Y h:i:s A');
                                 $status = 0;     
@@ -329,7 +330,7 @@ if(isset($_SESSION['id']) == ""){
                                 }else{
                                 
                                 
-                                 $inst = mysql_query("INSERT INTO ph_photographers_info(ph_business_name, ph_business_role, ph_business_address, ph_business_address_area, ph_business_pincode, ph_business_city, ph_business_state, ph_business_regions, ph_business_languages, ph_business_logo_name, ph_business_logo_size, ph_business_logo_type, ph_business_logo_path, ph_business_specialization, ph_business_photostyle, ph_business_categories, ph_business_photography_price, ph_business_video_price, ph_business_photo_video_price, ph_business_equipment, ph_business_equipment_specs, ph_business_services, ph_business_payment_options, ph_business_cover_photo_name, ph_business_cover_photo_size, ph_business_cover_photo_type, ph_business_cover_photo_path, ph_business_photo_name, ph_business_photo_path, ph_business_video_name, ph_business_video_path, ph_user_id, ph_business_status, ph_business_reg_date, ph_business_updated_date)values('$business_name','$business_role', '$business_address','$business_address_area', '$pincode', '$city', '$state', '$regions_covered','$languages_known','$img_name', '$img_size', '$img_type', '$img_path', '$specialization', '$photo_style', '$categories', '$app_starting_price','$app_video_price','$app_photo_video_price','$equipment','$model_specs','$products','$payment','$cover_img_name','$cover_img_size','$cover_img_type','$cover_photonew_target','$photo_img_name','$photos_target_path','$video_name','$videos_target_path','".$_SESSION['id']."','$status','$reg_date','$updated_date')");
+                                 $inst = mysql_query("INSERT INTO ph_photographers_info(ph_business_name, ph_business_role, ph_business_address, ph_business_address_area, ph_business_pincode, ph_business_city, ph_business_state, ph_business_regions, ph_business_languages, ph_business_logo_name, ph_business_logo_size, ph_business_logo_type, ph_business_logo_path, ph_business_specialization, ph_business_photostyle, ph_business_categories, ph_business_photography_price, ph_business_video_price, ph_business_photo_video_price, ph_business_equipment, ph_business_equipment_specs, ph_business_services, ph_business_payment_options, ph_business_cover_photo_name, ph_business_cover_photo_size, ph_business_cover_photo_type, ph_business_cover_photo_path, ph_business_photo_category, ph_business_photo_name, ph_business_photo_path, ph_business_video_name, ph_business_video_path, ph_user_id, ph_business_status, ph_business_reg_date, ph_business_updated_date)values('$business_name','$business_role', '$business_address','$business_address_area', '$pincode', '$city', '$state', '$regions_covered','$languages_known','$img_name', '$img_size', '$img_type', '$img_path', '$specialization', '$photo_style', '$categories', '$app_starting_price','$app_video_price','$app_photo_video_price','$equipment','$model_specs','$products','$payment','$cover_img_name','$cover_img_size','$cover_img_type','$cover_photonew_target', '$category', '$photo_img_name','$photos_target_path','$video_name','$videos_target_path','".$_SESSION['id']."','$status','$reg_date','$updated_date')");
                         if($inst){
                             
                 $update = mysql_query("UPDATE ph_users_info SET ph_user_profile_created = '1' WHERE ph_user_id = '".$_SESSION['id']."'");            
@@ -341,6 +342,12 @@ if(isset($_SESSION['id']) == ""){
                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                            <strong><i class="fa fa-check"></i> Success!</strong> Thanks for submitting your profile. Administrator will review your profile and publish your account to receive full benefits.
                        </div>
+                        
+                        <div>
+                                    <a class="btn_a color1 medium_btn bottom_space" target="_self" href="PreviewProfile.php">
+                                            <span><i class="in_left ico-user5"></i><span>PREVIEW PROFILE</span><i class="in_right ico-user5"></i></span>
+                                    </a>
+				</div>
                                     
                                    
                                     
@@ -377,7 +384,31 @@ if(isset($_SESSION['id']) == ""){
                                                     </div>                                              
 						</div>
                                         
-                                                <div class="form_row clearfix">                                     
+                                                <div class="form_row clearfix">  
+                                                    
+                                                    <div class="my_col">
+                                                        
+                                                        <?php
+                                                        
+                                                        $sel_cat = mysql_query("SELECT * FROM ph_category WHERE pcat = 0 AND cat_status = 1 ORDER BY cat_name");                                            
+                                                        ?>
+                                                        <label>
+								<span class="hm_field_name"><strong>Select Category</strong></span>
+                                                                
+							</label>
+                                                                                                                   
+								<label class="orderby_label">
+                                                                    <select required="" name="ft_category" id="ft_category" class="shipping_country">
+                                                                        <?php
+                                                                        while($cat_data = mysql_fetch_array($sel_cat)){
+                                                                            $cat_name = $cat_data['cat_name'];
+                                                                            $cat_id = $cat_data['cat_id'];
+                                                                        ?>
+										<option value="<?php echo $cat_name;?>"><?php echo $cat_name;?></option>
+                                                                        <?php } ?>                                                                                                              </select>
+								</label>
+                                                    </div>
+                                                    
                                                     <div class="my_col">
 							<label>
 								<span class="hm_field_name"><strong>Photos</strong></span>
@@ -398,7 +429,7 @@ if(isset($_SESSION['id']) == ""){
 							</label>
 							<div class="my_col">
 								
-                          <input type="file" class="hm_input_text" name="ft_videos[]" id="ft_videos" multiple/> <br /><small>( Try selecting more than one video or one, when browsing for videos )</small>                                                              
+                          <input type="text" class="hm_input_text" name="ft_videos" id="ft_videos" /> <br /><small>( Enter Youtube / Vimeo Video URL )</small>                                                              
 							</div>
                                                     </div>                                       
 						</div>
