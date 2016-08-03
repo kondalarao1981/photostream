@@ -132,6 +132,19 @@ require_once('Config.php');
 	<!-- End Icon Boxes Style 1 A -->
 
 
+        <?php
+        
+            /*********** Fetching the data for Categories information **********/
+        
+        $sel_cat = mysql_query("SELECT * FROM ph_category WHERE pcat = 0 AND cat_status = 1 ORDER BY cat_id ASC LIMIT 7"); 
+        
+        $sel = mysql_query("SELECT * FROM ph_photographers_info WHERE ph_business_status = 1 ORDER BY ph_business_id DESC LIMIT 10");       
+        
+        
+        
+        ?>
+        
+        
 
 	<!-- Isotope Filter Masonry -->
 	<section class="content_section bg_gray border_t_n">
@@ -145,14 +158,19 @@ require_once('Config.php');
 		
 		<!-- Filter Content -->
 		<div class="hm_filter_wrapper masonry_porto five_portos project_text_nav full_portos has_sapce_portos upper_title porto_hidden_title">
-		    <div id="options" class="sort_options clearfix">
+		    <!--<div id="options" class="sort_options clearfix">
 			<ul data-option-key="filter" class="option-set clearfix" id="filter-by">
-			    <li><a data-option-value="*" class="selected" href="#"><span>all</span><span class="num"></span></a></li>
-			    <li><a data-option-value=".design" class="" href="#"><span>Wedding</span><span class="num"></span></a></li>
-			    <li><a data-option-value=".photography" class="" href="#"><span>Kids</span><span class="num"></span></a></li>
-			    <li><a data-option-value=".video" class="" href="#"><span>Fashion</span><span class="num"></span></a></li>
-			    <li><a data-option-value=".printing" class="" href="#"><span>Travel & Nature</span><span class="num"></span></a></li>
-			    <li><a data-option-value=".wordpress" class="" href="#"><span>Commercial</span><span class="num"></span></a></li>
+                             <li><a data-option-value="*" class="selected" href="#"><span>all</span><span class="num"></span></a></li>
+                            <?php
+                                while($data = mysql_fetch_array($sel_cat)){
+                                    
+                                    $cat_id = $data['cat_id'];
+                                    $cat_name = $data['cat_name'];                         
+                                    $selected = '';
+                                    
+                            ?>
+			    <li><a data-option-value="*" class="<?php echo $selected;?>" href="#"><span><?php echo $cat_name;?></span><span class="num"></span></a></li>			    
+                                <?php } ?>
 			</ul>
 			<div class="sort_list">
 			    <a href="#" class="sort_selecter">
@@ -172,10 +190,50 @@ require_once('Config.php');
 				<span><i class="ico-keyboard-arrow-down"></i></span></a>
 			    </li>
 			</ul>
-		    </div>     
+		    </div>-->     
 			      
 		    <div class="hm_filter_wrapper_con">
-			    <div class="filter_item_block width2 rectangle_width video">
+                         <!-- Columns Container -->
+                        <div class="rows_container clearfix">
+                        
+                        <?php
+                        
+                        
+                        while($row = mysql_fetch_array($sel)){
+        
+                        $business_cover_photo = $row['ph_business_cover_photo_path'];
+                        $business_name = $row['ph_business_name'];
+                        $business_city = $row['ph_business_city'];
+                        $business_state = $row['ph_business_state'];
+                        $business_address = $row['ph_business_address'];
+                        $business_pincode = $row['ph_business_pincode'];
+                        $business_regions = $row['ph_business_regions'];
+                        $business_languages = $row['ph_business_languages'];
+                        $business_photostyle = $row['ph_business_photostyle'];
+                        $business_photo_name = $row['ph_business_photo_name'];
+                        $business_photo_path = $row['ph_business_photo_path'];
+                        $business_video_name = $row['ph_business_video_name'];
+                        $business_video_path = $row['ph_business_video_path'];
+                        $business_starting_price = $row['ph_business_photography_price'];
+                        $business_category = $row['ph_business_photo_category'];
+                        $business_services = $row['ph_business_services'];
+                        $exp_business_services = explode(',', $business_services);
+                        $count_services = count($exp_business_services);
+                        $exp_business_photo = explode(',', $business_photo_name);
+                        $count_photo = count($exp_business_photo);
+                        $exp_business_photo_path = explode(',', $business_photo_path);
+                        $count_photo_path = count($exp_business_photo);
+                        $exp_business_video_path = explode(',', $business_video_path);
+                        $count_video_path = count($exp_business_video_path);
+                        $business_date_added = $row['ph_business_reg_date'];
+                        
+                        $count_rows = mysql_num_rows($sel);          
+                        
+                        ?>
+                        
+                        
+                        
+			    <!--<div class="filter_item_block width2 rectangle_width video">
 				    <div class="porto_block porto_animate">
 					    <div class="porto_type">
 						    <a data-rel="magnific-popup" href="images/portfolio/masonry1.jpg">
@@ -196,245 +254,64 @@ require_once('Config.php');
 						</div>
 					    </div>
 				    </div>
-			    </div><!-- Item -->
+			    </div><!-- Item -->                
+                                        
+				
+					<div class="col-md-3">
+                                             <div class="porto_block porto_animate">
+						<!-- Single Image -->
+						<div class="centered">
+                                                    <a class="magnific-popup img_popup" href="<?php echo $exp_business_photo_path[0];?>">
+                                                        <img src="<?php echo $exp_business_photo_path[0];?>" style="width: 308px;height: 360px;">                                                                             </a>   
+                                                    <div class="porto_nav">
+                                                                <a href="#" class="expand_img">View Larger</a>
+                                                                <a href="#" class="detail_link">More Details</a>
+                                                    </div>
+						</div>
+						<!-- End Single Image -->
+                                                
+                                                <div class="porto_desc">
+                                                    <h6 class="name"><?php echo $business_category;?></h6>
+                                                    <div class="porto_meta clearfix">
+                                                        <span class="porto_date"><span class="number"></span><?php echo $business_date_added;?></span>
+                                                        <!--<span class="porto_nums">
+                                                            <span class="comm"><i class="ico-comments"></i><span class="comm_counter">12</span></span>
+                                                            <span class="like"><i class="ico-heart2"></i><span class="like_counter">100</span></span>
+                                                        </span>-->
+                                                    </div>
+                                                </div>
+                                             </div>
+					</div>	           
+                            
+                            
+                            
 			    
-			    <div class="filter_item_block design video printing wordpress">
+			    <!--<div class="filter_item_block design video printing wordpress">
 				    <div class="porto_block porto_animate">
+                                            
 					    <div class="porto_type">
-						    <a data-rel="magnific-popup" href="images/portfolio/porto2.jpg">
-							    <img src="images/portfolio/porto2.jpg" alt="Portfolio Name">
-						    </a>
+						    <a data-rel="magnific-popup" href="<?php echo $exp_business_photo_path[0];?>">
+							    <img src="<?php echo $exp_business_photo_path[0];?>" alt="Portfolio Name">
+                                                    </a>
 						    <div class="porto_nav">
 							<a href="#" class="expand_img">View Larger</a>
 							<a href="#" class="detail_link">More Details</a>
 						    </div>
 					    </div>
+                                            
+
 					    <div class="porto_desc">
-						<h6 class="name">Dawn of Justice</h6>
+						<h6 class="name"><?php echo $business_category;?></h6>
 						<div class="porto_meta clearfix">
-						    <span class="porto_date"><span class="number">20150412</span>April 12, 2015</span>
-						    <span class="porto_nums">
-							<span class="comm"><i class="ico-comments"></i><span class="comm_counter">134</span></span>
-							<span class="like"><i class="ico-heart2"></i><span class="like_counter">50</span></span>
-						    </span>
+						    <span class="porto_date"><span class="number"></span><?php echo $business_date_added;?></span>						    
 						</div>
 					    </div>
 				    </div>
-			    </div><!-- Item -->
+			    </div>--><!-- Item -->
 			    
-			    <div class="filter_item_block design wordpress">
-				    <div class="porto_block porto_animate">
-					    <div class="porto_type">
-						    <a data-rel="magnific-popup" href="images/portfolio/porto3.jpg">
-							    <img src="images/portfolio/porto3.jpg" alt="Portfolio Name">
-						    </a>
-						    <div class="porto_nav">
-							<a href="#" class="expand_img">View Larger</a>
-							<a href="#" class="detail_link">More Details</a>
-						    </div>
-					    </div>
-					    <div class="porto_desc">
-						<h6 class="name">Fly On the sky</h6>
-						<div class="porto_meta clearfix">
-						    <span class="porto_date"><span class="number">20150401</span>April 1, 2015</span>
-						    <span class="porto_nums">
-							<span class="comm"><i class="ico-comments"></i><span class="comm_counter">34</span></span>
-							<span class="like"><i class="ico-heart2"></i><span class="like_counter">123</span></span>
-						    </span>
-						</div>
-					    </div>
-				    </div>
-			    </div><!-- Item -->
-			    
-			    <div class="filter_item_block design photography printing">
-				    <div class="porto_block porto_animate">
-					    <div class="porto_type">
-						    <a data-rel="magnific-popup" href="images/portfolio/porto4.jpg">
-							    <img src="images/portfolio/porto4.jpg" alt="Portfolio Name">
-						    </a>
-						    <div class="porto_nav">
-							<a href="#" class="expand_img">View Larger</a>
-							<a href="#" class="detail_link">More Details</a>
-						    </div>
-					    </div>
-					    <div class="porto_desc">
-						<h6 class="name">Need For Speed</h6>
-						<div class="porto_meta clearfix">
-						    <span class="porto_date"><span class="number">20150422</span>April 22, 2015</span>
-						    <span class="porto_nums">
-							<span class="comm"><i class="ico-comments"></i><span class="comm_counter">89</span></span>
-							<span class="like"><i class="ico-heart2"></i><span class="like_counter">653</span></span>
-						    </span>
-						</div>
-					    </div>
-				    </div>
-			    </div><!-- Item -->
-			    
-			    <div class="filter_item_block design wordpress">
-				    <div class="porto_block porto_animate">
-					    <div class="porto_type">
-						    <a data-rel="magnific-popup" href="images/portfolio/porto5.jpg">
-							    <img src="images/portfolio/porto5.jpg" alt="Portfolio Name">
-						    </a>
-						    <div class="porto_nav">
-							<a href="#" class="expand_img">View Larger</a>
-							<a href="#" class="detail_link">More Details</a>
-						    </div>
-					    </div>
-					    <div class="porto_desc">
-						<h6 class="name">Days of Future</h6>
-						<div class="porto_meta clearfix">
-						    <span class="porto_date"><span class="number">20150430</span>April 30, 2015</span>
-						    <span class="porto_nums">
-							<span class="comm"><i class="ico-comments"></i><span class="comm_counter">54</span></span>
-							<span class="like"><i class="ico-heart2"></i><span class="like_counter">988</span></span>
-						    </span>
-						</div>
-					    </div>
-				    </div>
-			    </div><!-- Item -->
-			    
-			    <div class="filter_item_block width2 design wordpress">
-				    <div class="porto_block porto_animate">
-					    <div class="porto_type">
-						    <a data-rel="magnific-popup" href="images/portfolio/porto5.jpg">
-							    <img src="images/portfolio/porto9.jpg" alt="Portfolio Name">
-						    </a>
-						    <div class="porto_nav">
-							<a href="#" class="expand_img">View Larger</a>
-							<a href="#" class="detail_link">More Details</a>
-						    </div>
-					    </div>
-					    <div class="porto_desc">
-						<h6 class="name">Star Lord</h6>
-						<div class="porto_meta clearfix">
-						    <span class="porto_date"><span class="number">20150424</span>April 24, 2015</span>
-						    <span class="porto_nums">
-							<span class="comm"><i class="ico-comments"></i><span class="comm_counter">21</span></span>
-							<span class="like"><i class="ico-heart2"></i><span class="like_counter">67</span></span>
-						    </span>
-						</div>
-					    </div>
-				    </div>
-			    </div><!-- Item -->
-			    
-			    <div class="filter_item_block design wordpress photography printing">
-				    <div class="porto_block porto_animate">
-					    <div class="porto_type">
-						    <a data-rel="magnific-popup" href="images/portfolio/porto6.jpg">
-							    <img src="images/portfolio/porto6.jpg" alt="Portfolio Name">
-						    </a>
-						    <div class="porto_nav">
-							<a href="#" class="expand_img">View Larger</a>
-							<a href="#" class="detail_link">More Details</a>
-						    </div>
-					    </div>
-					    <div class="porto_desc">
-						<h6 class="name">Into the light</h6>
-						<div class="porto_meta clearfix">
-						    <span class="porto_date"><span class="number">20150321</span>March 21, 2015</span>
-						    <span class="porto_nums">
-							<span class="comm"><i class="ico-comments"></i><span class="comm_counter">134</span></span>
-							<span class="like"><i class="ico-heart2"></i><span class="like_counter">50</span></span>
-						    </span>
-						</div>
-					    </div>
-				    </div>
-			    </div><!-- Item -->
-			    
-			    <div class="filter_item_block design wordpress">
-				    <div class="porto_block porto_animate">
-					    <div class="porto_type">
-						    <a data-rel="magnific-popup" href="images/portfolio/porto7.jpg">
-							    <img src="images/portfolio/porto7.jpg" alt="Portfolio Name">
-						    </a>
-						    <div class="porto_nav">
-							<a href="#" class="expand_img">View Larger</a>
-							<a href="#" class="detail_link">More Details</a>
-						    </div>
-					    </div>
-					    <div class="porto_desc">
-						<h6 class="name">Dont be Shy</h6>
-						<div class="porto_meta clearfix">
-						    <span class="porto_date"><span class="number">20150327</span>March 27, 2015</span>
-						    <span class="porto_nums">
-							<span class="comm"><i class="ico-comments"></i><span class="comm_counter">21</span></span>
-							<span class="like"><i class="ico-heart2"></i><span class="like_counter">521</span></span>
-						    </span>
-						</div>
-					    </div>
-				    </div>
-			    </div><!-- Item -->
-			    
-			    <div class="filter_item_block design wordpress photography printing">
-				    <div class="porto_block porto_animate">
-					    <div class="porto_type">
-						    <a data-rel="magnific-popup" href="images/portfolio/porto8.jpg">
-							    <img src="images/portfolio/porto8.jpg" alt="Portfolio Name">
-						    </a>
-						    <div class="porto_nav">
-							<a href="#" class="expand_img">View Larger</a>
-							<a href="#" class="detail_link">More Details</a>
-						    </div>
-					    </div>
-					    <div class="porto_desc">
-						<h6 class="name">Designers Master</h6>
-						<div class="porto_meta clearfix">
-						    <span class="porto_date"><span class="number">20150403</span>April 3, 2015</span>
-						    <span class="porto_nums">
-							<span class="comm"><i class="ico-comments"></i><span class="comm_counter">75</span></span>
-							<span class="like"><i class="ico-heart2"></i><span class="like_counter">761</span></span>
-						    </span>
-						</div>
-					    </div>
-				    </div>
-			    </div><!-- Item -->
-			    <div class="filter_item_block photography">
-				    <div class="porto_block porto_animate">
-					    <div class="porto_type">
-						    <a data-rel="magnific-popup" href="images/portfolio/porto2.jpg">
-							    <img src="images/portfolio/porto1.jpg" alt="Portfolio Name">
-						    </a>
-						    <div class="porto_nav">
-							<a href="#" class="expand_img">View Larger</a>
-							<a href="#" class="detail_link">More Details</a>
-						    </div>
-					    </div>
-					    <div class="porto_desc">
-						<h6 class="name">Flat Logo Design0</h6>
-						<div class="porto_meta clearfix">
-						    <span class="porto_date"><span class="number">20150511</span>May 11, 2015</span>
-						    <span class="porto_nums">
-							<span class="comm"><i class="ico-comments"></i><span class="comm_counter">5</span></span>
-							<span class="like"><i class="ico-heart2"></i><span class="like_counter">254</span></span>
-						    </span>
-						</div>
-					    </div>
-				    </div>
-			    </div><!-- Item -->
-			    <div class="filter_item_block photography">
-				    <div class="porto_block porto_animate">
-					    <div class="porto_type">
-						    <a data-rel="magnific-popup" href="images/portfolio/porto2.jpg">
-							    <img src="images/portfolio/porto10.jpg" alt="Portfolio Name">
-						    </a>
-						    <div class="porto_nav">
-							<a href="#" class="expand_img">View Larger</a>
-							<a href="#" class="detail_link">More Details</a>
-						    </div>
-					    </div>
-					    <div class="porto_desc">
-						<h6 class="name">Flat Logo Design1</h6>
-						<div class="porto_meta clearfix">
-						    <span class="porto_date"><span class="number">20150503</span>May 3, 2015</span>
-						    <span class="porto_nums">
-							<span class="comm"><i class="ico-comments"></i><span class="comm_counter">71</span></span>
-							<span class="like"><i class="ico-heart2"></i><span class="like_counter">99</span></span>
-						    </span>
-						</div>
-					    </div>
-				    </div>
-			    </div><!-- Item -->
+                            <?php } ?>         
+			   </div>
+				<!-- End Columns Container -->
 		    </div>
 		</div>
 		<!-- End Filter Content -->
