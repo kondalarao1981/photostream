@@ -46,9 +46,10 @@
 
 									?>
 											<ul>
-											<li class="normal_menu"><a href="AccountOverview.php">Account Overview</a></li>
+                                                                                        <li class="normal_menu"><a href="ManageAccount.php">Manage Account</a></li>
+											
 											<li class="normal_menu"><a href="ChangePassword.php">Change Password</a></li>
-											<li class="normal_menu"><a href="ManageAccount.php">Manage Account</a></li>
+											
 											<li class="normal_menu"><a href="Signout.php"><span class="menu_special_color">Signout</span></a></li>
 										</ul>	
 									
